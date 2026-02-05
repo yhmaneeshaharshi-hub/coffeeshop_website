@@ -1,0 +1,3 @@
+have to start in img in css. (6.30)
+
+second day : finished nav bar
