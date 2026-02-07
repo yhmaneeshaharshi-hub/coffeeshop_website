@@ -43,6 +43,9 @@
       --site-max-width:1300px;
 
 }
+html{
+  scroll-behavior: smooth;  
+}
 /* stylings for whole site */
 ul{
     list-style:none;
@@ -197,6 +200,22 @@ header .navbar{
     max-width:500px; 
     margin-right:30px;  
 }
+/*//////////////////////////*/
+/* Hide all by default */
+.hero-label {
+    display: none;
+    cursor: pointer;
+}
+
+/* Because hero-state-1 is checked in HTML, img-1 will show on page load */
+#hero-state-1:checked ~ #img-1,
+#hero-state-2:checked ~ #img-2,
+#hero-state-3:checked ~ #img-3,
+#hero-state-4:checked ~ #img-4,
+#hero-state-5:checked ~ #img-5 {
+    display: block;
+}
+
 /* about section styling*/
 .about-section{
    padding:120px 0;
@@ -310,6 +329,7 @@ header .navbar{
 }
 
 .testimonials-section .testimonial{
+    user-select:none;
     display:flex;
     padding:35px;
     text-align:center;
@@ -450,6 +470,44 @@ header .navbar{
     color:var(--primary-color);
     background:transparent;
 }
+/* footer section styling */
+.footer-section{
+    padding:20px 0;
+    background: var(--dark-color);
+}
+
+.footer-section .section-content{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    
+}
+
+.footer-section :where(.copyright-text, .social-link, .policy-link){
+    color:var(--white-color);
+    transition:0.2s ease;
+}
+
+.footer-section .social-link-list{
+    display:flex;
+    gap:25px;
+}
+
+
+.footer-section .social-link-list .social-link{
+    font-size:var(--font-size-1);
+}
+
+.footer-section .social-link-list .social-link:hover,
+.footer-section .policy-text .policy-link:hover{
+    color:var(--secondary-color);
+}
+
+.footer-section .policy-text .separator{
+    margin:0 5px;
+    color:var(--white-color);
+
+}
 
 
 /*responsive media query code for max width 1024px*/
@@ -536,7 +594,7 @@ header .navbar{
         justify-content: center;
 
     }
-    .hero-section .hero-details :is(.subtitle,.description), .about-section .about-details{
+    .hero-section .hero-details :is(.subtitle,.description), .about-section .about-details , .contact-section .contact-form{
           max-width: 100%;
     }
 
@@ -552,7 +610,7 @@ header .navbar{
     .about-section .section-content{
 
          gap:70px;
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
 
     .about-section .about-image-wrapper .about-image{
@@ -582,7 +640,8 @@ header .navbar{
 }
 
 .contact-section .section-content{
-     flex-direction:column;
+    align-items:center;
+     flex-direction:column-reverse;
 }
 }
 
@@ -602,5 +661,10 @@ header .navbar{
     }
     .testimonials-section .swiper-slide-button{
         display:none;
+    }
+
+    .footer-section .section-content{
+        flex-direction: column;
+        gap:20px;
     }
 }
