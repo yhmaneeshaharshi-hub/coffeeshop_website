@@ -138,7 +138,7 @@ header .navbar{
 /*hero section styling*/
 .hero-section{
     min-height:100vh;
-    background:var(--primary-color);
+    background:linear-gradient(var(--primary-color),var(--primary-color),var(--white-color));
 }
 
 .hero-section .section-content{
